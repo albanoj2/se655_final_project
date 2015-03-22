@@ -2,26 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c231fa4-3a5f-4164-b41f-ef6500a89ab7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/se655_final_project.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\.classpath" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\.project" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\.settings\org.eclipse.core.resources.prefs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\.settings\org.eclipse.jdt.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\.settings\org.eclipse.m2e.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\README.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\src\main\java\edu\erau\se655\sp15\teama\final_project\individual_neo4j\App.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\src\main\java\edu\erau\se655\sp15\teama\final_project\individual_neo4j\FriendsOfFriendsRunner.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\src\test\java\edu\erau\se655\sp15\teama\final_project\individual_neo4j\AppTest.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\target\classes\.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\target\classes\edu\erau\se655\sp15\teama\final_project\individual_neo4j\App.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\individual_neo4j\target\test-classes\edu\erau\se655\sp15\teama\final_project\individual_neo4j\AppTest.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/.classpath" afterPath="$PROJECT_DIR$/individual/graph/java/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/.project" afterPath="$PROJECT_DIR$/individual/graph/java/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/data/DataEntry.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/data/DataEntry.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/data/DataSet.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/data/DataSet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/data/DataSetLoader.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/data/DataSetLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/DatabaseExecutor.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/DatabaseExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/Main.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/neo4j/Neo4jSocialNetworkDatabaseExecutor.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/neo4j/Neo4jSocialNetworkDatabaseExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/README.md" afterPath="$PROJECT_DIR$/individual/graph/java/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/sparksee/SparkseeSocialNetworkDatabaseExecutor.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/sparksee/SparkseeSocialNetworkDatabaseExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/individual/graph/java/.settings/org.eclipse.jdt.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/.settings/org.eclipse.m2e.core.prefs" afterPath="$PROJECT_DIR$/individual/graph/java/.settings/org.eclipse.m2e.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/pom.xml" afterPath="$PROJECT_DIR$/individual/graph/java/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py" afterPath="$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/sparksee.log" afterPath="$PROJECT_DIR$/individual/graph/java/sparksee.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="se655_final_project.iws" />
     <ignored path=".idea/workspace.xml" />

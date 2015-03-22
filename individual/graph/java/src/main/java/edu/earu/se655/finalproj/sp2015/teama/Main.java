@@ -5,7 +5,6 @@ import java.util.List;
 
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSet;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSetLoader;
-import edu.earu.se655.finalproj.sp2015.teama.neo4j.Neo4jSocialNetworkDatabaseExecutor;
 import edu.earu.se655.finalproj.sp2015.teama.sparksee.SparkseeSocialNetworkDatabaseExecutor;
 
 public class Main {
