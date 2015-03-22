@@ -18,15 +18,11 @@ public class Neo4jSocialNetworkDatabaseExecutor extends DatabaseExecutor {
 
 	private GraphDatabaseService graphDatabaseService;
 
-	private static enum Relationships implements RelationshipType {
-		KNOWS
-	}
+	private static enum Relationships implements RelationshipType { KNOWS }
 
-	public Neo4jSocialNetworkDatabaseExecutor(String databasePath,
-			DataSet dataSet) {
+	public Neo4jSocialNetworkDatabaseExecutor(String databasePath, DataSet dataSet) {
 		super(dataSet);
-		this.graphDatabaseService = new GraphDatabaseFactory()
-				.newEmbeddedDatabase(databasePath);
+		this.graphDatabaseService = new GraphDatabaseFactory().newEmbeddedDatabase(databasePath);
 	}
 
 	@Override
@@ -84,7 +80,6 @@ public class Neo4jSocialNetworkDatabaseExecutor extends DatabaseExecutor {
 			tx.success();
 		}
 		
-
 		return this;
 	}
 
