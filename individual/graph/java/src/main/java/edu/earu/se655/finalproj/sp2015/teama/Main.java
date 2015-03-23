@@ -3,10 +3,12 @@ package edu.earu.se655.finalproj.sp2015.teama;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.tinkerpop.blueprints.Graph;
+import com.tinkerpop.blueprints.GraphFactory;
+
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSet;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSetLoader;
-import edu.earu.se655.finalproj.sp2015.teama.neo4j.Neo4jSocialNetworkDatabaseExecutor;
-import edu.earu.se655.finalproj.sp2015.teama.orientdb.OrientDbSocialNetworkDatabaseExecutor;
+import edu.earu.se655.finalproj.sp2015.teama.tinkerpop.TinkerpopSocialNetworkDatabaseExecutor;
 
 public class Main {
 	
@@ -14,18 +16,30 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		
+		// Create the data sets
+		List<DataSet> dataSets = Main.createDataSets();
+		
 		// A list containing all the database executors
 		List<DatabaseExecutor> databaseExecutors = new ArrayList<>();
+		
+		// A list of the configurations (representing each graph type)
+		@SuppressWarnings("serial")
+		List<String> configurations = new ArrayList<String>() {{
+			add("graph_configs/neo4j.properties");
+			add("graph_configs/orientdb.properties");
+			add("graph_configs/rexster.properties");
+			add("graph_configs/tinker.properties");
+		}};
 
 		// Add the executors for each of the algorithms and workloads
-		databaseExecutors.addAll(Main.createSocialNetworkExecutors());
+		databaseExecutors.addAll(Main.createExecutors(TinkerpopSocialNetworkDatabaseExecutor.class, configurations, dataSets));
 		
 		for (DatabaseExecutor executor : databaseExecutors) {
 			// Repeat for each of the executors
 			List<Long> executionTimes = new ArrayList<>();
 			
 			// Header for execution
-			System.out.println("Executing " + executor.getClass().getSimpleName() + "...");
+			System.out.println("Executing " + executor + "...");
 			
 			// Populate the database
 			System.out.print("\t+ Populating...");
@@ -54,32 +68,45 @@ public class Main {
 		}
 	}
 	
-	@SuppressWarnings("serial")
-	public static List<DatabaseExecutor> createSocialNetworkExecutors () throws Exception {
+	public static List<DataSet> createDataSets () {
 		
+		// The list containing the data sets
+		List<DataSet> dataSets = new ArrayList<>();
+		
+		// Notify the user that the data sets are being loaded
 		System.out.print("Loading social network data sets...");
-		final DataSet smallDataSet = new DataSetLoader().load("social_network/small.json").getDataSet();
-		final DataSet mediumDataSet = new DataSetLoader().load("social_network/medium.json").getDataSet();
-		final DataSet largeDataSet = new DataSetLoader().load("social_network/large.json").getDataSet();
-		final DataSet veryLargeDataSet = new DataSetLoader().load("social_network/very_large.json").getDataSet();
+		
+		// Add the data sets to the list
+		dataSets.add(new DataSetLoader().load("social_network/small.json").getDataSet());
+		dataSets.add(new DataSetLoader().load("social_network/medium.json").getDataSet());
+		dataSets.add(new DataSetLoader().load("social_network/large.json").getDataSet());
+		dataSets.add(new DataSetLoader().load("social_network/very_large.json").getDataSet());
+		
+		// The loading is complete
 		System.out.println("done.");
 		
-		return new ArrayList<DatabaseExecutor>() {{
-			// Neo4j executors
-			add(new Neo4jSocialNetworkDatabaseExecutor("databases/neo4j/social_network/small.db", smallDataSet));
-			add(new Neo4jSocialNetworkDatabaseExecutor("databases/neo4j/social_network/medium.db", mediumDataSet));
-			add(new Neo4jSocialNetworkDatabaseExecutor("databases/neo4j/social_network/large.db", largeDataSet));
-			add(new Neo4jSocialNetworkDatabaseExecutor("databases/neo4j/social_network/very_large.db", veryLargeDataSet));
-			
-			// OrientDB executors
-			add(new OrientDbSocialNetworkDatabaseExecutor(System.getProperty("user.dir") + "/databases/orientdb/social_network/small.gdb", smallDataSet));
-			add(new OrientDbSocialNetworkDatabaseExecutor(System.getProperty("user.dir") + "/databases/orientdb/social_network/medium.gdb", mediumDataSet));
-			add(new OrientDbSocialNetworkDatabaseExecutor(System.getProperty("user.dir") + "/databases/orientdb/social_network/large.gdb", largeDataSet));
-			add(new OrientDbSocialNetworkDatabaseExecutor(System.getProperty("user.dir") + "/databases/orientdb/social_network/very_large.gdb", veryLargeDataSet));
+		return dataSets;
+	}
+	
+	public static <T extends DatabaseExecutor> List<DatabaseExecutor> createExecutors (Class<T> executorClass, List<String> configurations, List<DataSet> dataSets) {
 		
-			// Sparksee executors
-//			add(new SparkseeSocialNetworkDatabaseExecutor("Social_network_small", "databases/sparksee/social_network/small.db", smallDataSet));
-		}};
+		// A list of executors to collect
+		List<DatabaseExecutor> executors = new ArrayList<>();
+		
+		configurations.forEach((configuration) -> {
+			// Iterate through the configurations
+			dataSets.forEach((dataSet) -> {
+				
+				try {
+					// Create an executor for each configuration and data set
+					executors.add(executorClass.getConstructor(Graph.class, DataSet.class).newInstance(GraphFactory.open(configuration), dataSet));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			});
+		});
+		
+		return executors;
 	}
 
 }
