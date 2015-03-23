@@ -71,7 +71,12 @@ public class SparkseeSocialNetworkDatabaseExecutor extends DatabaseExecutor {
 
 	@Override
 	public DatabaseExecutor execute() {
-		// TODO Auto-generated method stub
-		return null;
+		return this;
+	}
+
+	@Override
+	public DatabaseExecutor shutdown() {
+		this.database.close();
+		return this;
 	}
 }

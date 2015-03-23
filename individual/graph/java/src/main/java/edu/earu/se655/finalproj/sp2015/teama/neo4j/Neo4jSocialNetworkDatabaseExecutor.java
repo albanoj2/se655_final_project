@@ -66,20 +66,23 @@ public class Neo4jSocialNetworkDatabaseExecutor extends DatabaseExecutor {
 
 		try (Transaction tx = this.graphDatabaseService.beginTx()) {
 			
-			for (int i = 0; i < this.dataSet.getDataEntries().size(); i += 100) {
-				// Repeat for every 100th entry
-				DataEntry entry = this.dataSet.getDataEntries().get(i);
-				
+			this.dataSet.getDataEntries().forEach((entry) -> {				
 				// Execute the search query for each of the nodes in the graph
 				engine.execute("MATCH (user)-[:" + Relationships.KNOWS + "*2]->(fof) "
-						+ "WHERE id(user) = " + entry.getId() + " AND NOT (user)-[:" + Relationships.KNOWS + "]->(fof) "
+						+ "WHERE id(user) = " + entry.getId() + " "
 						+ "RETURN COUNT(fof)");
-			}
+			});
 		
 			// Complete the transaction
 			tx.success();
 		}
 		
+		return this;
+	}
+
+	@Override
+	public DatabaseExecutor shutdown() {
+		this.graphDatabaseService.shutdown();
 		return this;
 	}
 

@@ -32,4 +32,5 @@ public abstract class DatabaseExecutor {
 	
 	public abstract DatabaseExecutor populate ();
 	public abstract DatabaseExecutor execute ();
+	public abstract DatabaseExecutor shutdown ();
 }

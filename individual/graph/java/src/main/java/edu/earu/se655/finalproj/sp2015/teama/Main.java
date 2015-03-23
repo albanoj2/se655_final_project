@@ -5,7 +5,8 @@ import java.util.List;
 
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSet;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSetLoader;
-import edu.earu.se655.finalproj.sp2015.teama.sparksee.SparkseeSocialNetworkDatabaseExecutor;
+import edu.earu.se655.finalproj.sp2015.teama.neo4j.Neo4jSocialNetworkDatabaseExecutor;
+import edu.earu.se655.finalproj.sp2015.teama.orientdb.OrientDbSocialNetworkDatabaseExecutor;
 
 public class Main {
 	
@@ -47,10 +48,13 @@ public class Main {
 			// Output the results
 			System.out.println("\t+ Mean: " + executionTimes.stream().mapToLong(Long::longValue).average().getAsDouble());
 			System.out.println("\t+ Sample values:" + executionTimes + " in ms");
+			
+			// Shutdown the executor
+			executor.shutdown();
 		}
 	}
 	
-	@SuppressWarnings({ "serial", "unused" })
+	@SuppressWarnings("serial")
 	public static List<DatabaseExecutor> createSocialNetworkExecutors () throws Exception {
 		
 		System.out.print("Loading social network data sets...");
@@ -60,10 +64,21 @@ public class Main {
 		final DataSet veryLargeDataSet = new DataSetLoader().load("social_network/very_large.json").getDataSet();
 		System.out.println("done.");
 		
-		// Create the social network executors for Neo4j
 		return new ArrayList<DatabaseExecutor>() {{
-//			add(new Neo4jSocialNetworkDatabaseExecutor("databases/neo4j/social_network/small.db", smallDataSet));
-			add(new SparkseeSocialNetworkDatabaseExecutor("Social_network_small", "databases/sparksee/social_network/small.db", smallDataSet));
+			// Neo4j executors
+			add(new Neo4jSocialNetworkDatabaseExecutor("databases/neo4j/social_network/small.db", smallDataSet));
+			add(new Neo4jSocialNetworkDatabaseExecutor("databases/neo4j/social_network/medium.db", mediumDataSet));
+			add(new Neo4jSocialNetworkDatabaseExecutor("databases/neo4j/social_network/large.db", largeDataSet));
+			add(new Neo4jSocialNetworkDatabaseExecutor("databases/neo4j/social_network/very_large.db", veryLargeDataSet));
+			
+			// OrientDB executors
+			add(new OrientDbSocialNetworkDatabaseExecutor(System.getProperty("user.dir") + "/databases/orientdb/social_network/small.gdb", smallDataSet));
+			add(new OrientDbSocialNetworkDatabaseExecutor(System.getProperty("user.dir") + "/databases/orientdb/social_network/medium.gdb", mediumDataSet));
+			add(new OrientDbSocialNetworkDatabaseExecutor(System.getProperty("user.dir") + "/databases/orientdb/social_network/large.gdb", largeDataSet));
+			add(new OrientDbSocialNetworkDatabaseExecutor(System.getProperty("user.dir") + "/databases/orientdb/social_network/very_large.gdb", veryLargeDataSet));
+		
+			// Sparksee executors
+//			add(new SparkseeSocialNetworkDatabaseExecutor("Social_network_small", "databases/sparksee/social_network/small.db", smallDataSet));
 		}};
 	}
 
