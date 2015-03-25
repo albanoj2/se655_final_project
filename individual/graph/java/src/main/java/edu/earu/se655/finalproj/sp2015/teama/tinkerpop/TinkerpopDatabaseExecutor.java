@@ -2,6 +2,7 @@ package edu.earu.se655.finalproj.sp2015.teama.tinkerpop;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import com.tinkerpop.blueprints.Graph;
 import com.tinkerpop.blueprints.Vertex;
@@ -12,7 +13,6 @@ import edu.earu.se655.finalproj.sp2015.teama.data.DataSet;
 
 public abstract class TinkerpopDatabaseExecutor extends DatabaseExecutor {
 	
-	protected static final String KNOWS_RELATIONSHIP = "KNOWS";
 	protected Graph graph;
 
 	public TinkerpopDatabaseExecutor (Graph graph, DataSet dataSet) {
@@ -31,7 +31,13 @@ public abstract class TinkerpopDatabaseExecutor extends DatabaseExecutor {
 
 		for (@SuppressWarnings("unused") DataEntry entry : this.dataSet.getDataEntries()) {
 			// Create a node for each of entries
-			vertices.add(this.graph.addVertex(null));
+			Vertex vertex = this.graph.addVertex(null);
+			
+			// Set the name of the vertex to a random UUID
+			vertex.setProperty(VertexProperties.NAME, UUID.randomUUID());
+			
+			// Add the vertex to the list of vertices
+			vertices.add(vertex);
 		}
 		
 		for (DataEntry entry : this.dataSet.getDataEntries()) {
@@ -40,7 +46,7 @@ public abstract class TinkerpopDatabaseExecutor extends DatabaseExecutor {
 			
 			for (int endNodeId : entry.getRelationshipIds()) {
 				// Create the relationship to each of the 
-				this.graph.addEdge(null, vertices.get(startNodeId), vertices.get(endNodeId), KNOWS_RELATIONSHIP);
+				this.graph.addEdge(null, vertices.get(startNodeId), vertices.get(endNodeId), Relationships.KNOWS);
 			}
 		}
 		

@@ -47,12 +47,12 @@ public class TinkerpopSocialNetworkDatabaseExecutor extends TinkerpopDatabaseExe
 		    // Obtain the outgoing edges from this vertex (the "knows" 
 			// relationship to obtain the friends)
 			
-			for (Edge edgeLeadingToFriend : startVertex.getEdges(Direction.OUT, KNOWS_RELATIONSHIP)) {
+			for (Edge edgeLeadingToFriend : startVertex.getEdges(Direction.OUT, Relationships.KNOWS)) {
 				// Iterate through each of the "knows" relationship and obtain 
 				// the friend vertices (terminating vertex of relationship)
 				Vertex friendVertex = edgeLeadingToFriend.getVertex(Direction.OUT);
 				
-				for (Edge edgeLeadingTofriendOfFriend : friendVertex.getEdges(Direction.OUT, KNOWS_RELATIONSHIP)) {
+				for (Edge edgeLeadingTofriendOfFriend : friendVertex.getEdges(Direction.OUT, Relationships.KNOWS)) {
 					// Obtain the edge representing the friend-of-friend 
 					// relationship (terminating at the friend-of-friend vertex)
 					edgeLeadingTofriendOfFriend.getVertex(Direction.OUT).getId();
