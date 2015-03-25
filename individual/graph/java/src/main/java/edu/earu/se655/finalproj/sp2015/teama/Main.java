@@ -15,6 +15,7 @@ import com.tinkerpop.blueprints.GraphFactory;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSet;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSetLoader;
 import edu.earu.se655.finalproj.sp2015.teama.tinkerpop.TinkerpopGetPropertyDatabaseExecutor;
+import edu.earu.se655.finalproj.sp2015.teama.tinkerpop.TinkerpopShiftRelationshipDatabaseExecutor;
 import edu.earu.se655.finalproj.sp2015.teama.tinkerpop.TinkerpopSocialNetworkDatabaseExecutor;
 
 public class Main {
@@ -38,6 +39,7 @@ public class Main {
 		List<Class<? extends DatabaseExecutor>> executors = new ArrayList<Class<? extends DatabaseExecutor>>() {{
 			add(TinkerpopSocialNetworkDatabaseExecutor.class);
 			add(TinkerpopGetPropertyDatabaseExecutor.class);
+			add(TinkerpopShiftRelationshipDatabaseExecutor.class);
 		}};
 		
 		// A list of the configurations (representing each graph type)
