@@ -1,7 +1,13 @@
 package edu.earu.se655.finalproj.sp2015.teama;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.UUID;
 
 import com.tinkerpop.blueprints.Graph;
 import com.tinkerpop.blueprints.GraphFactory;
@@ -13,14 +19,24 @@ import edu.earu.se655.finalproj.sp2015.teama.tinkerpop.TinkerpopSocialNetworkDat
 public class Main {
 	
 	private static int ITERATION_COUNT = 30;
+	
+	public static void main (String[] args) throws Exception {
+		new Main().main();
+	}
 
-	public static void main(String[] args) throws Exception {
+	public void main () throws Exception {
 		
 		// Create the data sets
 		List<DataSet> dataSets = Main.createDataSets();
 		
 		// A list containing all the database executors
 		List<DatabaseExecutor> databaseExecutors = new ArrayList<>();
+		
+		// A list of the executors (represented by classes) to be executed
+		@SuppressWarnings("serial")
+		List<Class<? extends DatabaseExecutor>> executors = new ArrayList<Class<? extends DatabaseExecutor>>() {{
+			add(TinkerpopSocialNetworkDatabaseExecutor.class);
+		}};
 		
 		// A list of the configurations (representing each graph type)
 		@SuppressWarnings("serial")
@@ -32,7 +48,7 @@ public class Main {
 		}};
 
 		// Add the executors for each of the algorithms and workloads
-		databaseExecutors.addAll(Main.createExecutors(TinkerpopSocialNetworkDatabaseExecutor.class, configurations, dataSets));
+		databaseExecutors.addAll(this.createExecutors(executors, configurations, dataSets));
 		
 		for (DatabaseExecutor executor : databaseExecutors) {
 			// Repeat for each of the executors
@@ -88,25 +104,62 @@ public class Main {
 		return dataSets;
 	}
 	
-	public static <T extends DatabaseExecutor> List<DatabaseExecutor> createExecutors (Class<T> executorClass, List<String> configurations, List<DataSet> dataSets) {
+	@SuppressWarnings("rawtypes")
+	public List<DatabaseExecutor> createExecutors (List<Class<? extends DatabaseExecutor>> executorClasses, List<String> configurations, List<DataSet> dataSets) {
 		
 		// A list of executors to collect
 		List<DatabaseExecutor> executors = new ArrayList<>();
 		
-		configurations.forEach((configuration) -> {
-			// Iterate through the configurations
-			dataSets.forEach((dataSet) -> {
-				
-				try {
-					// Create an executor for each configuration and data set
-					executors.add(executorClass.getConstructor(Graph.class, DataSet.class).newInstance(GraphFactory.open(configuration), dataSet));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		executorClasses.forEach((executorClass) -> {
+			// Iterate through each of the executor types
+			configurations.forEach((configuration) -> {
+				// Iterate through the configurations
+				dataSets.forEach((dataSet) -> {
+					// Iterate through each of the data sets
+					
+					// Ensure that the databases paths are unique when needed
+					Map configurationMap = this.alterConfigurationDatabasePath(configuration);
+					
+					try {
+						// Create an executor for each configuration and data set
+						executors.add(executorClass.getConstructor(Graph.class, DataSet.class).newInstance(GraphFactory.open(configurationMap), dataSet));
+					} 
+					catch (Exception e) {
+						e.printStackTrace();
+					}
+				});
 			});
 		});
 		
 		return executors;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	private Map alterConfigurationDatabasePath (String configurationFilePath) {
+		
+		Properties properties = new Properties();
+		InputStream in;
+		try {
+			in = new FileInputStream(configurationFilePath);
+			properties.load(in);
+			in.close();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		if (properties.getProperty("blueprints.neo4j.directory") != null) {
+			// The properties contains an entry for the Neo4j directory
+			String directory = properties.getProperty("blueprints.neo4j.directory");
+			
+			// Split the directory by name and extension
+			String[] splitDirectory = directory.split("\\.");
+			
+			// Add the iteration number to the directory name and join it
+			properties.setProperty("blueprints.neo4j.directory", splitDirectory[0] + "-" + UUID.randomUUID() + splitDirectory[1]);
+		}
+		
+		return properties;
 	}
 
 }

@@ -17,6 +17,9 @@ public abstract class TinkerpopDatabaseExecutor extends DatabaseExecutor {
 
 	public TinkerpopDatabaseExecutor (Graph graph, DataSet dataSet) {
 		super(dataSet);
+
+		// Store a reference to the graph
+		this.graph = graph;
 	}
 
 
@@ -46,7 +49,7 @@ public abstract class TinkerpopDatabaseExecutor extends DatabaseExecutor {
 
 	@Override
 	public DatabaseExecutor shutdown() {
-		this.graph.shutdown();
+//		this.graph.shutdown();
 		return this;
 	}
 
