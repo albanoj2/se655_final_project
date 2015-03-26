@@ -2,26 +2,35 @@ package edu.earu.se655.finalproj.sp2015.teama.tinkerpop;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import com.tinkerpop.blueprints.Graph;
+import com.tinkerpop.blueprints.GraphFactory;
 import com.tinkerpop.blueprints.Vertex;
 
 import edu.earu.se655.finalproj.sp2015.teama.DatabaseExecutor;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataEntry;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSet;
 
+@SuppressWarnings("rawtypes")
 public abstract class TinkerpopDatabaseExecutor extends DatabaseExecutor {
 	
+	protected Map graphConfigurationMap;
 	protected Graph graph;
 
-	public TinkerpopDatabaseExecutor (Graph graph, DataSet dataSet) {
+	public TinkerpopDatabaseExecutor (Map graphConfigurationMap, DataSet dataSet) {
 		super(dataSet);
 
-		// Store a reference to the graph
-		this.graph = graph;
+		// Store a reference to the graph configuration
+		this.graphConfigurationMap = graphConfigurationMap;
 	}
-
+	
+	@Override
+	public DatabaseExecutor open () {
+		this.graph = GraphFactory.open(this.graphConfigurationMap);
+		return this;
+	}
 
 	@Override
 	public DatabaseExecutor populate () {
@@ -34,7 +43,7 @@ public abstract class TinkerpopDatabaseExecutor extends DatabaseExecutor {
 			Vertex vertex = this.graph.addVertex(null);
 			
 			// Set the name of the vertex to a random UUID
-			vertex.setProperty(VertexProperties.NAME, UUID.randomUUID());
+			vertex.setProperty(VertexProperties.NAME, UUID.randomUUID().toString());
 			
 			// Add the vertex to the list of vertices
 			vertices.add(vertex);
@@ -55,7 +64,7 @@ public abstract class TinkerpopDatabaseExecutor extends DatabaseExecutor {
 
 	@Override
 	public DatabaseExecutor shutdown() {
-//		this.graph.shutdown();
+		this.graph.shutdown();
 		return this;
 	}
 

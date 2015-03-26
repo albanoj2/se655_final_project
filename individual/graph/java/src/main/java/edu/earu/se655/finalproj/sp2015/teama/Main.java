@@ -9,9 +9,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
 
-import com.tinkerpop.blueprints.Graph;
-import com.tinkerpop.blueprints.GraphFactory;
-
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSet;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSetLoader;
 import edu.earu.se655.finalproj.sp2015.teama.tinkerpop.TinkerpopGetPropertyDatabaseExecutor;
@@ -57,6 +54,9 @@ public class Main {
 		for (DatabaseExecutor executor : databaseExecutors) {
 			// Repeat for each of the executors
 			List<Long> executionTimes = new ArrayList<>();
+
+			// Open the database executor
+			executor.open();
 			
 			// Header for execution
 			System.out.println("Executing " + executor + "...");
@@ -126,7 +126,7 @@ public class Main {
 					
 					try {
 						// Create an executor for each configuration and data set
-						executors.add(executorClass.getConstructor(Graph.class, DataSet.class).newInstance(GraphFactory.open(configurationMap), dataSet));
+						executors.add(executorClass.getConstructor(Map.class, DataSet.class).newInstance(configurationMap, dataSet));
 					} 
 					catch (Exception e) {
 						e.printStackTrace();

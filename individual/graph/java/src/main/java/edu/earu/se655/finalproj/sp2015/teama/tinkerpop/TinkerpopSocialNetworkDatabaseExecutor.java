@@ -1,8 +1,9 @@
 package edu.earu.se655.finalproj.sp2015.teama.tinkerpop;
 
+import java.util.Map;
+
 import com.tinkerpop.blueprints.Direction;
 import com.tinkerpop.blueprints.Edge;
-import com.tinkerpop.blueprints.Graph;
 import com.tinkerpop.blueprints.Vertex;
 
 import edu.earu.se655.finalproj.sp2015.teama.DatabaseExecutor;
@@ -10,8 +11,9 @@ import edu.earu.se655.finalproj.sp2015.teama.data.DataSet;
 
 public class TinkerpopSocialNetworkDatabaseExecutor extends TinkerpopDatabaseExecutor {
 
-	public TinkerpopSocialNetworkDatabaseExecutor (Graph graph, DataSet dataSet) {
-		super(graph, dataSet);
+	@SuppressWarnings("rawtypes")
+	public TinkerpopSocialNetworkDatabaseExecutor (Map graphConfigurationMap, DataSet dataSet) {
+		super(graphConfigurationMap, dataSet);
 	}
 
 	/**

@@ -30,6 +30,7 @@ public abstract class DatabaseExecutor {
 		return this.dataSet;
 	}
 	
+	public abstract DatabaseExecutor open ();
 	public abstract DatabaseExecutor populate ();
 	public abstract DatabaseExecutor execute ();
 	public abstract DatabaseExecutor shutdown ();

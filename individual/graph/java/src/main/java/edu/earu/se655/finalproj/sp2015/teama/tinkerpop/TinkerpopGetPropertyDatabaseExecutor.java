@@ -1,6 +1,7 @@
 package edu.earu.se655.finalproj.sp2015.teama.tinkerpop;
 
-import com.tinkerpop.blueprints.Graph;
+import java.util.Map;
+
 import com.tinkerpop.blueprints.Vertex;
 
 import edu.earu.se655.finalproj.sp2015.teama.DatabaseExecutor;
@@ -8,8 +9,9 @@ import edu.earu.se655.finalproj.sp2015.teama.data.DataSet;
 
 public class TinkerpopGetPropertyDatabaseExecutor extends TinkerpopDatabaseExecutor {
 
-	public TinkerpopGetPropertyDatabaseExecutor (Graph graph, DataSet dataSet) {
-		super(graph, dataSet);
+	@SuppressWarnings("rawtypes")
+	public TinkerpopGetPropertyDatabaseExecutor (Map graphConfigurationMap, DataSet dataSet) {
+		super(graphConfigurationMap, dataSet);
 	}
 
 	/**
