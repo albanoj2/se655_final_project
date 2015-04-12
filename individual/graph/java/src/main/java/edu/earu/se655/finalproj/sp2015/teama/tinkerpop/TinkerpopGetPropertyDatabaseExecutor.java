@@ -28,5 +28,10 @@ public class TinkerpopGetPropertyDatabaseExecutor extends TinkerpopDatabaseExecu
 		
 		return this;
 	}
+	
+	@Override
+	public String toString() {
+		return "Get property executor (" + this.graph + ")";
+	}
 
 }

@@ -8,6 +8,7 @@ import java.util.UUID;
 import com.tinkerpop.blueprints.Graph;
 import com.tinkerpop.blueprints.GraphFactory;
 import com.tinkerpop.blueprints.Vertex;
+import com.tinkerpop.blueprints.impls.neo4j.Neo4jGraph;
 
 import edu.earu.se655.finalproj.sp2015.teama.DatabaseExecutor;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataEntry;
@@ -64,8 +65,16 @@ public abstract class TinkerpopDatabaseExecutor extends DatabaseExecutor {
 
 	@Override
 	public DatabaseExecutor shutdown() {
-		this.graph.shutdown();
+		if (this.graph instanceof Neo4jGraph) {
+			// This is a temporary fix so that Neo4j databases are closed, but 
+			// OrientDB databases are not
+			this.graph.shutdown();
+		}
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		return this.graph.getClass().getSimpleName().toString();
+	}
 }

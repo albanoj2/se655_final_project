@@ -12,7 +12,6 @@ import java.util.UUID;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSet;
 import edu.earu.se655.finalproj.sp2015.teama.data.DataSetLoader;
 import edu.earu.se655.finalproj.sp2015.teama.tinkerpop.TinkerpopGetPropertyDatabaseExecutor;
-import edu.earu.se655.finalproj.sp2015.teama.tinkerpop.TinkerpopShiftRelationshipDatabaseExecutor;
 import edu.earu.se655.finalproj.sp2015.teama.tinkerpop.TinkerpopSocialNetworkDatabaseExecutor;
 
 public class Main {
@@ -25,18 +24,18 @@ public class Main {
 
 	public void main () throws Exception {
 		
-		// Create the data sets
-		List<DataSet> dataSets = Main.createDataSets();
-		
-		// A list containing all the database executors
-		List<DatabaseExecutor> databaseExecutors = new ArrayList<>();
+		// Print the environemnt settings
+		System.out.println("Environment");
+		System.out.println("===========");
+		System.out.println("\t+ Available cores: " + Runtime.getRuntime().availableProcessors());
+		System.out.println("\t+ Maximum memory: " + Runtime.getRuntime().maxMemory() / 1000.0 + " MB");
+		System.out.println();
 		
 		// A list of the executors (represented by classes) to be executed
 		@SuppressWarnings("serial")
 		List<Class<? extends DatabaseExecutor>> executors = new ArrayList<Class<? extends DatabaseExecutor>>() {{
 			add(TinkerpopSocialNetworkDatabaseExecutor.class);
 			add(TinkerpopGetPropertyDatabaseExecutor.class);
-			add(TinkerpopShiftRelationshipDatabaseExecutor.class);
 		}};
 		
 		// A list of the configurations (representing each graph type)
@@ -44,10 +43,29 @@ public class Main {
 		List<String> configurations = new ArrayList<String>() {{
 			add("graph_configs/neo4j.properties");
 			add("graph_configs/orientdb.properties");
-			add("graph_configs/rexster.properties");
-			add("graph_configs/tinker.properties");
 		}};
+		
+		// Print heading for the data set
+		System.out.println("Data Sets");
+		System.out.println("=========");
+		
+		// Notify the user that the data sets are being loaded
+		System.out.print("Loading social network data sets...");
+		List<DataSet> dataSets = Main.createDataSets();
+		System.out.println("done.");
+		
+		dataSets.forEach((dataSet) -> {
+			// Print the number of nodes and relationships
+			System.out.println("\t+ " + dataSet.getName() + ": " + dataSet.getNumberOfNodes() + " nodes, " + dataSet.getNumberOfRelationships() + " relationships");
+		});
+		
+		// Print heading for the execution
+		System.out.println("\nExecution");
+		System.out.println("=========");
 
+		// A list containing all the database executors
+		List<DatabaseExecutor> databaseExecutors = new ArrayList<>();
+		
 		// Add the executors for each of the algorithms and workloads
 		databaseExecutors.addAll(this.createExecutors(executors, configurations, dataSets));
 		
@@ -67,8 +85,14 @@ public class Main {
 			System.out.println("completed with " + executor.getDataSet().getNumberOfNodes() + " nodes and " + executor.getDataSet().getNumberOfRelationships() + " relationships.");
 
 			for (int i = 0; i < ITERATION_COUNT; i++) {
-				// Execute the algorithm
-				executor.tick().execute().tock();
+				
+				try {
+					// Execute the algorithm
+					executor.tick().execute().tock();
+				}
+				catch (Exception e) {
+					System.out.println(e);
+				}
 				
 				// Record the execution time
 				executionTimes.add(executor.getEllapsedTime());
@@ -93,17 +117,11 @@ public class Main {
 		// The list containing the data sets
 		List<DataSet> dataSets = new ArrayList<>();
 		
-		// Notify the user that the data sets are being loaded
-		System.out.print("Loading social network data sets...");
-		
 		// Add the data sets to the list
 		dataSets.add(new DataSetLoader().load("social_network/small.json").getDataSet());
 		dataSets.add(new DataSetLoader().load("social_network/medium.json").getDataSet());
-		dataSets.add(new DataSetLoader().load("social_network/large.json").getDataSet());
-		dataSets.add(new DataSetLoader().load("social_network/very_large.json").getDataSet());
-		
-		// The loading is complete
-		System.out.println("done.");
+//		dataSets.add(new DataSetLoader().load("social_network/large.json").getDataSet());
+//		dataSets.add(new DataSetLoader().load("social_network/very_large.json").getDataSet());
 		
 		return dataSets;
 	}

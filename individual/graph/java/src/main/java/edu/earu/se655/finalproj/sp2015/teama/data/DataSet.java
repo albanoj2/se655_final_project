@@ -8,10 +8,14 @@ import org.json.simple.JSONArray;
 
 public class DataSet {
 	
+	private String name;
 	private List<DataEntry> dataEntries;
 	
 	@SuppressWarnings("unchecked")
-	public DataSet (JSONArray jsonArray) {
+	public DataSet (String name, JSONArray jsonArray) {
+		
+		// Store the name of the data set
+		this.name = name;
 		
 		// Create a list of data entries
 		this.dataEntries = new ArrayList<>();
@@ -35,5 +39,9 @@ public class DataSet {
 	
 	public long getNumberOfRelationships () {
 		return this.getDataEntries().stream().flatMap(entry -> entry.getRelationshipIds().stream()).count();
+	}
+	
+	public String getName () {
+		return this.name;
 	}
 }

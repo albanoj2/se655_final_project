@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c231fa4-3a5f-4164-b41f-ef6500a89ab7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/individual/graph/data_sets/generators/recommendation.py" />
+      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\java\graph_configs\rexster.properties" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\java\graph_configs\tinker.properties" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Justin\Documents\GitHub\se655_final_project\individual\graph\java\src\main\java\edu\earu\se655\finalproj\sp2015\teama\tinkerpop\TinkerpopShiftRelationshipDatabaseExecutor.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/se655_sp15_final_project_albano_jones_tournour.docx" afterPath="$PROJECT_DIR$/docs/se655_sp15_final_project_albano_jones_tournour.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/.classpath" afterPath="$PROJECT_DIR$/individual/graph/java/.classpath" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/.project" afterPath="$PROJECT_DIR$/individual/graph/java/.project" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/data/DataEntry.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/data/DataEntry.java" />
@@ -9,16 +14,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/data/DataSetLoader.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/data/DataSetLoader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/DatabaseExecutor.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/DatabaseExecutor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/Main.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/neo4j/Neo4jSocialNetworkDatabaseExecutor.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/neo4j/Neo4jSocialNetworkDatabaseExecutor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/orientdb/OrientDbSocialNetworkDatabaseExecutor.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/orientdb/OrientDbSocialNetworkDatabaseExecutor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/README.md" afterPath="$PROJECT_DIR$/individual/graph/java/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/sparksee/SparkseeSocialNetworkDatabaseExecutor.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/sparksee/SparkseeSocialNetworkDatabaseExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/tinkerpop/Relationships.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/tinkerpop/Relationships.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/tinkerpop/TinkerpopDatabaseExecutor.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/tinkerpop/TinkerpopDatabaseExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/tinkerpop/TinkerpopGetPropertyDatabaseExecutor.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/tinkerpop/TinkerpopGetPropertyDatabaseExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/tinkerpop/TinkerpopSocialNetworkDatabaseExecutor.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/tinkerpop/TinkerpopSocialNetworkDatabaseExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/tinkerpop/VertexProperties.java" afterPath="$PROJECT_DIR$/individual/graph/java/src/main/java/edu/earu/se655/finalproj/sp2015/teama/tinkerpop/VertexProperties.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/graph_configs/neo4j.properties" afterPath="$PROJECT_DIR$/individual/graph/java/graph_configs/neo4j.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/individual/graph/java/.settings/org.eclipse.jdt.core.prefs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/.settings/org.eclipse.m2e.core.prefs" afterPath="$PROJECT_DIR$/individual/graph/java/.settings/org.eclipse.m2e.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/graph_configs/orientdb.properties" afterPath="$PROJECT_DIR$/individual/graph/java/graph_configs/orientdb.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/pom.xml" afterPath="$PROJECT_DIR$/individual/graph/java/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py" afterPath="$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/individual/graph/java/sparksee.log" afterPath="$PROJECT_DIR$/individual/graph/java/sparksee.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="se655_final_project.iws" />
@@ -43,11 +51,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="social_network.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="social_network.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8452915" vertical-offset="350" max-vertical-offset="1242">
-              <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="350" max-vertical-offset="1242">
+              <caret line="48" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recommendation.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/individual/graph/data_sets/generators/recommendation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.87979096" vertical-offset="461" max-vertical-offset="1357">
+              <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -65,6 +85,7 @@
       <list>
         <option value="$PROJECT_DIR$/individual/graph/data_sets/social_network/small.dat" />
         <option value="$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py" />
+        <option value="$PROJECT_DIR$/individual/graph/data_sets/generators/recommendation.py" />
       </list>
     </option>
   </component>
@@ -97,7 +118,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -156,34 +176,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="se655_final_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="se655_final_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="individual" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="graph" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data_sets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generators" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -191,7 +186,7 @@
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
   </component>
-  <component name="RunManager" selected="Python.social_network">
+  <component name="RunManager" selected="Python.recommendation">
     <configuration default="false" name="social_network" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -205,6 +200,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="se655_final_project" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="recommendation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/individual/graph/data_sets/generators" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="se655_final_project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/individual/graph/data_sets/generators/recommendation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
@@ -333,12 +347,14 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.social_network" />
+      <item index="1" class="java.lang.String" itemvalue="Python.recommendation" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.social_network" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.recommendation" />
+        <item index="1" class="java.lang.String" itemvalue="Python.social_network" />
       </list>
     </recent_temporary>
   </component>
@@ -360,24 +376,24 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -423,6 +439,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1242">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1311">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
@@ -433,8 +459,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/individual/graph/data_sets/generators/social_network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8452915" vertical-offset="350" max-vertical-offset="1242">
-          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="350" max-vertical-offset="1242">
+          <caret line="48" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-762174762/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295965" vertical-offset="10168" max-vertical-offset="118404">
+          <caret line="455" column="4" selection-start-line="455" selection-start-column="4" selection-end-line="455" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/individual/graph/data_sets/generators/recommendation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.87979096" vertical-offset="461" max-vertical-offset="1357">
+          <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
