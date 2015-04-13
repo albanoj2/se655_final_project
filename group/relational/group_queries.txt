@@ -1,0 +1,5 @@
+SELECT EmployeeTable.Person_ID, EmployeeTable.Work_ID FROM EmployeeTable WHERE EmployeeTable.Work_ID = ANY (SELECT EmployeeTable.Work_ID FROM EmployeeTable WHERE EmployeeTable.Person_ID = 'Person_1');
+
+SELECT RelationshipTable.Interest_ID, COUNT(RelationshipTable.Interest_ID) FROM RelationshipTable WHERE RelationshipTable.Person_ID = ANY (SELECT EmployeeTable.Person_ID FROM EmployeeTable WHERE EmployeeTable.Work_ID = ANY (SELECT EmployeeTable.Work_ID FROM EmployeeTable WHERE EmployeeTable.Person_ID ='Person_1')) GROUP BY RelationshipTable.Interest_ID;
+
+SELECT RelationshipTable.Interest_ID FROM RelationshipTable WHERE RelationshipTable.Person_ID ='Person_1';
