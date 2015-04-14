@@ -1,0 +1,11 @@
+SELECT * FROM OrderTable;
+
+SELECT OrderProductTable.Order_Number, OrderProductTable.Product_ID, OrderProductTable.Count FROM OrderProductTable ORDER BY OrderProductTable.Count;
+
+SELECT OrderTable.Client_ID, COUNT(OrderTable.Client_ID) as count FROM OrderTable GROUP BY OrderTable.Client_ID ORDER BY count DESC;
+
+UPDATE OrderProductTable SET Count = 5 WHERE Count > 5;
+
+SELECT ProductTable.Description FROM ProductTable WHERE ProductTable.Product_ID = ANY (SELECT OrderProductTable.Product_ID FROM OrderProductTable WHERE OrderProductTable.Order_ID = ANY (SELECT OrderTable.Order_ID FROM OrderTable WHERE OrderTable.Client_ID = ANY (SELECT ClientTable.Client_ID FROM ClientTable WHERE ClientTable.Email = "Client_0@blah.com")));
+
+DELETE OrderTable, OrderProductTable FROM OrderTable JOIN OrderProductTable ON OrderProductTable.Order_ID = OrderTable.Order_ID WHERE OrderTable.Client_ID = "Client_3";
