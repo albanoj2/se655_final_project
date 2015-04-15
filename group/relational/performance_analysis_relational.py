@@ -18,21 +18,27 @@ class MySQLPerformance():
                    "SELECT RelationshipTable.Interest_ID FROM RelationshipTable WHERE RelationshipTable.Person_ID ='{}';"
                   ]
 
+        db = MySQLdb.connect("localhost","test","testtest","TEST")
+        #db = psycopg2.connect(database="postgres", user="postgres")
+        cursor = db.cursor()
+
+        self.repopulate(cursor)
+
+
         for query in queries:
-            db = MySQLdb.connect("localhost","root","","TEST")
-            #db = psycopg2.connect(database="postgres", user="postgres")
-            cursor = db.cursor()
+            
             i =0
 
             print '\n'
 
             print 'NEW QUERY ', query
         
+
+
             execution_time_array = []
             while i < 30:
 
 
-                self.repopulate(cursor)
                 db.commit()
                 start = datetime.now()
                 for person in people:

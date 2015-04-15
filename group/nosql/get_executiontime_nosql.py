@@ -51,7 +51,7 @@ def query1(r, people_list):
 
         query_1_execution_times.append(execution_time)
 
-    print work_place_return
+    # print work_place_return
 
     print 'QUERY 1'
     print query_1_execution_times
